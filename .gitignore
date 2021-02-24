@@ -1,0 +1,24 @@
+# Logs
+*.log
+
+# Editor files
+.vscode
+
+# Dependency directory
+node_modules
+.vscode
+
+# Trash
+.DS_Store
+.idea
+.vscode
+
+# Dynamically processed files
+reports
+coverage
+build
+i18n
+errorshots
+
+# Mocks
+mocks/development/
