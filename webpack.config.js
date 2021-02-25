@@ -1,6 +1,5 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: {
@@ -24,13 +23,12 @@ module.exports = {
   ],
   mode: 'development',
   // uso estas dos propiedad para excluir node_modules de la compilacion
-  target: 'node',
-  externals: [nodeExternals()],
   module: {
     rules: [
       {
-        test: /\.js?$/,
-        loader: 'babel-loader'
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
       },
       {
         test: /\.scss?$/,
