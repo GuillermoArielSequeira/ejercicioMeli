@@ -6,7 +6,8 @@
   "scripts": {
     "start-dev": "nodemon ./app/server",
     "watch": "webpack --watch",
-    "test": "npm run test:unit"
+    "test": "npm run test:unit",
+    "debug": "nodemon --inspect ./app/server"
   },
   "repository": {
     "type": "git",
