@@ -2,4 +2,6 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const Search = require('../shared/components/pages/search');
 
-ReactDOM.hydrate(<Search />, document.getElementById('root'));
+const preloadState = window.ML_PRELOADED_STATE;
+
+ReactDOM.hydrate(<Search {...preloadState} />, document.getElementById('root'));
