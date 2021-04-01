@@ -5,6 +5,7 @@ module.exports = (bundle, component) =>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width">
+      <link rel="stylesheet" type="text/css" href="/${bundle}.css"> 
   </head>
   <body>
     <div id="root">${component}</div>

@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Search = require('../shared/components/pages/search');
+const Search = require('../pages/search');
 
 const preloadState = window.ML_PRELOADED_STATE;
 

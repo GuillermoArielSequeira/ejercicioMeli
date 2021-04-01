@@ -1,5 +1,6 @@
 const React = require('react');
 const Script = require('../helpers/script');
+const Layout = require('../components/search');
 const serialize = require('serialize-javascript');
 
 const Search = props => {
@@ -12,8 +13,14 @@ const Search = props => {
       <Script>
         {` window.ML_PRELOADED_STATE = ${serialize(serializeProps, { isJSON: true })}; `}
       </Script>
-      <h1>hola Search</h1>
-      <p>asdasdasdasd</p>
+      <Layout />
+      {props.items && props.items.map(
+        item =>
+          <h4 key={item.id}>
+            <a href={`items/${item.id}`}>
+              {item.title}
+            </a>
+          </h4>)}
     </div>
   )
 }

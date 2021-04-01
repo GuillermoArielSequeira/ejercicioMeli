@@ -2,15 +2,24 @@
 // para que se ejecute ReactDOMServer.renderToString
 require('@babel/register');
 require('@babel/polyfill');
+
+const hook = require('node-hook');
+
+const logLoadedFilename = (source, filename) => { };
+hook.hook('.scss', logLoadedFilename);
+// pongo esto para que los archivos scss no sean tenidos en cuenta en el server
+// ya que el mismo no puede interpretar scss
+
 const express = require('express');
 const { getItemListing, getItem } = require('./services/item-services');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const path = require('path');
+const favicon = require('serve-favicon');
 const axios = require('axios');
-const Home = require('../shared/components/pages/home');
-const Search = require('../shared/components/pages/search');
-const Vip = require('../shared/components/pages/vip');
+const Home = require('../pages/home');
+const Search = require('../pages/search');
+const Vip = require('../pages/vip');
 const template = require('./template');
 const app = express();
 const port = 3000;
@@ -19,6 +28,10 @@ const port = 3000;
 //ya que las rutas son estaticas debemos declarar de donde tiene que ir
 // a buscar el archivo
 app.use('/', express.static(path.join(__dirname, '../../build')));
+
+// esto es util para utilizar los recursos que estan en static
+app.use('/static', express.static(path.join(__dirname, '../static')));
+app.use(favicon(path.join(__dirname, '../static', 'favicon.ico')));
 
 app.get("/", (req, res) => {
   //ReactDOMServer.renderToString disponibilidad un html estatico, el browser ya va a tener disponible algo para cargar

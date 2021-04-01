@@ -41,6 +41,7 @@
     "express": "^4.17.1",
     "express-device": "^0.4.2",
     "mini-css-extract-plugin": "^1.3.8",
+    "node-hook": "^1.0.0",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -51,6 +52,7 @@
     "serialize-javascript": "^5.0.1",
     "serve-favicon": "^2.5.0",
     "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "webpack": "^5.24.1",
     "webpack-cli": "^4.5.0"
   },

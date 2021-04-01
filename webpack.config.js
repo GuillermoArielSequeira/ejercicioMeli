@@ -33,6 +33,10 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
+        test: /\.(jpe?g|png|ttf|eot|otf|gif|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        use: 'url-loader' // para que pueda incluir nuevas fonts e imagenes
+      },
+      {
         test: /\.scss?$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
