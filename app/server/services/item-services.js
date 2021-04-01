@@ -50,7 +50,7 @@ const getItemListing = async q => {
         title: item.title,
         price: {
           currency: item.currency_id,
-          amount: Math.trunc(item.price), // -> le saca los decimales al amount
+          amount: new Intl.NumberFormat('de-DE').format(Math.trunc(item.price)), // -> le saca los decimales al amount
           decimals: getDecimalsFromPrice(item.price)
         },
         picture: item.thumbnail,

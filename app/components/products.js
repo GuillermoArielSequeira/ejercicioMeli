@@ -11,10 +11,22 @@ const Products = ({ items }) => (
               <img className="product-item-image" src={item.picture} alt="product"></img>
               <div className="product-item-info">
                 <div className="product-item-info-price">
-                  $ {item.price.amount}
-                  {item.price.decimals > 0 && <sup>{item.price.decimals}</sup>}
+                  <div className="product-item-info-price-money">
+                    $ {item.price.amount}
+                    {item.price.decimals > 0 && <sup>{item.price.decimals}</sup>}
+
+                  </div>
+                  {item.free_shipping &&
+                    <img
+                      className="product-item-info-price-icon"
+                      src={'../assets/ic_shipping.png'}
+                      srcset="../assets/ic_shipping.png 1x,
+                      ../assets/ic_shipping@2x.png 2x"
+                      alt="free-shipiing-icon"
+                    />
+                  }
                 </div>
-                <h4 className="product-item-info-title5">
+                <h4 className="product-item-info-title">
                   {item.title}
                 </h4>
               </div>

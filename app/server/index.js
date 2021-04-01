@@ -30,8 +30,8 @@ const port = 3000;
 app.use('/', express.static(path.join(__dirname, '../../build')));
 
 // esto es util para utilizar los recursos que estan en static
-app.use('/static', express.static(path.join(__dirname, '../static')));
-app.use(favicon(path.join(__dirname, '../static', 'favicon.ico')));
+app.use('/assets', express.static(path.join(__dirname, '../assets')));
+app.use(favicon(path.join(__dirname, '../assets', 'favicon.ico')));
 
 app.get("/", (req, res) => {
   //ReactDOMServer.renderToString disponibilidad un html estatico, el browser ya va a tener disponible algo para cargar

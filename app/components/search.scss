@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('../static/proxima-nova-300.woff2');
+  src: url('../assets/proxima-nova-300.woff2');
   font-weight: 300;
 }
 
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('../static/proxima-nova-400.woff2');
+  src: url('../assets/proxima-nova-400.woff2');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('../static/proxima-nova-600.woff2');
+  src: url('../assets/proxima-nova-600.woff2');
   font-weight: 600;
 }
 
@@ -43,7 +43,7 @@ body {
     justify-content: center;
      
     &-meli-icon {
-      background-image: url('../static/logo__large_plus@2x.png');
+      background-image: url('../assets/logo__large_plus@2x.png');
       background-repeat: no-repeat; 
       background-size: 134px 34px;
       height: 40px;
