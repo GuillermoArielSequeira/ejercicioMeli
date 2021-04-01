@@ -6,6 +6,7 @@ const getDecimalsFromPrice = amount => amount % 1 !== 0 // --> esta condicion es
 const getItem = async id => {
   try {
     const response = await axios.get(`https://api.mercadolibre.com/items/${id}`)
+    console.log(response.data);
     const itemDto = {
       author: {
         name: 'Guille',
@@ -56,6 +57,7 @@ const getItemListing = async q => {
         condition: item.condition,
         free_shipping: item.shipping.free_shipping,
         sold_quantity: item.sold_quantity,
+        location: item.address.state_name,
         description: "description"
       }
       items.push(currentItem);
