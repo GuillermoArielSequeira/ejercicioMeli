@@ -6,6 +6,7 @@ const getDecimalsFromPrice = amount => amount % 1 !== 0 // --> esta condicion es
 const getItem = async id => {
   try {
     const response = await axios.get(`https://api.mercadolibre.com/items/${id}`)
+    const descriptionResponse = await axios.get(`https://api.mercadolibre.com/items/${id}/description`);
     console.log(response.data);
     const itemDto = {
       author: {
@@ -17,15 +18,14 @@ const getItem = async id => {
         title: response.data.title,
         price: {
           currency: response.data.currency_id,
-          amount: Math.trunc(response.data.price), // -> le saca los decimales al amount
+          amount: new Intl.NumberFormat('de-DE').format(Math.trunc(response.data.price)), // -> le saca los decimales al amount
           decimals: getDecimalsFromPrice(response.data.price)
         },
-        picture: response.data.thumbnail,
+        picture: response.data.pictures[0].secure_url,
         condition: response.data.condition,
         free_shipping: response.data.shipping.free_shipping,
         sold_quantity: response.data.sold_quantity,
-        description: "description"
-
+        description: descriptionResponse ? descriptionResponse.data.plain_text : ''
       }
     };
     return itemDto;

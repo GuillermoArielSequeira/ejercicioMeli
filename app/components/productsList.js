@@ -1,5 +1,5 @@
 const React = require('react');
-require('./products.scss');
+require('./productsList.scss');
 
 const Products = ({ items }) => (
   <div className="products" >
@@ -8,7 +8,7 @@ const Products = ({ items }) => (
         item =>
           <div className="product" key={item.id}>
             <a className="product-item" href={`items/${item.id}`}>
-              <img className="product-item-image" src={item.picture} alt="product"></img>
+              <img className="product-item-image" src={item.picture} alt="product-image"></img>
               <div className="product-item-info">
                 <div className="product-item-info-price">
                   <div className="product-item-info-price-money">
@@ -20,7 +20,7 @@ const Products = ({ items }) => (
                     <img
                       className="product-item-info-price-icon"
                       src={'../assets/ic_shipping.png'}
-                      srcset="../assets/ic_shipping.png 1x,
+                      srcSet="../assets/ic_shipping.png 1x,
                       ../assets/ic_shipping@2x.png 2x"
                       alt="free-shipiing-icon"
                     />

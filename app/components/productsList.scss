@@ -54,6 +54,9 @@
 
 @media(max-width: 420px){
   .products{
+    &-container{
+      box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.1);
+    }
     .product{
       .product-item{
         flex-direction: column;
@@ -68,6 +71,9 @@
 
 @media(max-width: 280px){
   .products{
+    &-container{
+      box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.1);
+    }
     .product{
       .product-item{
         &-info{
