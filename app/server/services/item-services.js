@@ -31,6 +31,7 @@ const getItem = async id => {
         breadcrumb: breadcrumbResponse.data.path_from_root
       }
     };
+    console.log(itemDto);
     return itemDto;
 
   } catch (e) {
@@ -82,6 +83,7 @@ const getItemListing = async q => {
       categories: response.data?.results.map(item => item.category_id),
       breadcrumb: breadcrumbResponse && breadcrumbResponse.data.path_from_root
     };
+    console.log(listingDTO);
     return listingDTO;
 
   } catch (e) {

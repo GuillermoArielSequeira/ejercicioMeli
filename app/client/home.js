@@ -1,5 +1,5 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Hello = require('../pages/home');
+const Home = require('../pages/home');
 
-ReactDOM.hydrate(<Hello />, document.getElementById('root'));
+ReactDOM.hydrate(<Home />, document.getElementById('root'));
