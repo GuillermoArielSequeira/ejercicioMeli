@@ -58,6 +58,7 @@
     "webpack-cli": "^4.5.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.13.12",
     "webpack-node-externals": "^2.5.2"
   }
 }

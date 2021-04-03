@@ -1,6 +1,25 @@
 .products-info{
   max-width: 866px;  
-  margin: 30px auto;
+  margin: 20px auto;
+
+  &-breadcrumb{
+    display: inline-block;
+    margin: 0 20px 10px;
+
+    li {
+      display: inline;
+      &:last-child{
+        & svg {
+          display: none;
+        }
+      }
+    }
+    &-arrow{
+      margin: 0 5px;
+      width: 10px;
+      height: 10px;
+    }
+  }
 
   &-container {
     padding: 16px;

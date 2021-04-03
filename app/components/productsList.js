@@ -1,10 +1,18 @@
 const React = require('react');
 const { string, shape, number, arrayOf, bool } = require('prop-types');
+const ArrowIcon = require('../icons/arrow');
 require('./productsList.scss');
 
 const Products = ({ items, breadcrumb }) => (
   <div className="products" >
-    <div>{breadcrumb.map(cat => `${cat.name}`)}</div>
+    <ol className="products-breadcrumb" >
+      {breadcrumb && breadcrumb.map(cat =>
+        <li key={cat.name}>
+          {`${cat.name}`}
+          <ArrowIcon className="products-breadcrumb-arrow" />
+        </li>
+      )}
+    </ol>
     <div className="products-container">
       {items && items.map(
         item =>

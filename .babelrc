@@ -11,6 +11,9 @@
         }
       }
     ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining"
   ]
 }
 // especificamos que librerias queremos usar para nuestr entorno y para react

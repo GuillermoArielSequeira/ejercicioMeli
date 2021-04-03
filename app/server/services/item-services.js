@@ -4,11 +4,12 @@ const getDecimalsFromPrice = amount => amount % 1 !== 0 // --> esta condicion es
   ? parseInt(amount.toString().split('.')[1]) : 0;
 
 const getItem = async id => {
-  console.log("1");
+
   try {
     const response = await axios.get(`https://api.mercadolibre.com/items/${id}`)
     const descriptionResponse = await axios.get(`https://api.mercadolibre.com/items/${id}/description`);
     const breadcrumbResponse = await axios.get(`http://api.mercadolibre.com/categories/${response.data.category_id}`);
+
     const itemDto = {
       author: {
         name: 'Guille',
@@ -45,7 +46,12 @@ const getItemListing = async q => {
         limit: 4
       },
     });
-    const breadcrumbResponse = await axios.get(`http://api.mercadolibre.com/categories/${response.data.results[0].category_id}`);
+
+    let breadcrumbResponse;
+
+    if (response.data?.results[0]?.category_id) {
+      breadcrumbResponse = await axios.get(`http://api.mercadolibre.com/categories/${response.data?.results[0]?.category_id}`);
+    }
 
     const items = [];
 
@@ -73,8 +79,8 @@ const getItemListing = async q => {
         lastName: 'Sequeira'
       },
       items,
-      categories: response.data.results.map(item => item.category_id),
-      breadcrumb: breadcrumbResponse.data.path_from_root
+      categories: response.data?.results.map(item => item.category_id),
+      breadcrumb: breadcrumbResponse && breadcrumbResponse.data.path_from_root
     };
     return listingDTO;
 
