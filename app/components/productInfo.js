@@ -1,8 +1,9 @@
 const React = require('react');
 require('./productInfo.scss');
 
-const ProductsInfo = ({ title, picture, price, condition, sold_quantity, description }) => (
+const ProductsInfo = ({ title, picture, price, condition, sold_quantity, description, breadcrumb }) => (
   <div className="products-info">
+    <div>{breadcrumb.map(cat => `${cat.name}`)}</div>
     <div className="products-info-container">
       <div className="products-info-container-buy">
         <div className="products-info-container-buy-container-image">

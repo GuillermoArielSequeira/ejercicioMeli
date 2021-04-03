@@ -58,6 +58,7 @@ app.get("/items", (req, res) => {
   axios.get('http://localhost:3000/api/items/', { params: { q: query } })
     .then(response => {
       props.items = response.data.items;
+      props.breadcrumb = response.data.breadcrumb;
       res.send(template('search', ReactDOMServer.renderToString(React.createElement(Search, { ...props }, null))));
     })
     .catch(e => console.error(e))

@@ -1,8 +1,9 @@
 const React = require('react');
 require('./productsList.scss');
 
-const Products = ({ items }) => (
+const Products = ({ items, breadcrumb }) => (
   <div className="products" >
+    <div>{breadcrumb.map(cat => `${cat.name}`)}</div>
     <div className="products-container">
       {items && items.map(
         item =>

@@ -4,10 +4,11 @@ const getDecimalsFromPrice = amount => amount % 1 !== 0 // --> esta condicion es
   ? parseInt(amount.toString().split('.')[1]) : 0;
 
 const getItem = async id => {
+  console.log("1");
   try {
     const response = await axios.get(`https://api.mercadolibre.com/items/${id}`)
     const descriptionResponse = await axios.get(`https://api.mercadolibre.com/items/${id}/description`);
-    console.log(response.data);
+    const breadcrumbResponse = await axios.get(`http://api.mercadolibre.com/categories/${response.data.category_id}`);
     const itemDto = {
       author: {
         name: 'Guille',
@@ -25,7 +26,8 @@ const getItem = async id => {
         condition: response.data.condition,
         free_shipping: response.data.shipping.free_shipping,
         sold_quantity: response.data.sold_quantity,
-        description: descriptionResponse ? descriptionResponse.data.plain_text : ''
+        description: descriptionResponse ? descriptionResponse.data.plain_text : '',
+        breadcrumb: breadcrumbResponse.data.path_from_root
       }
     };
     return itemDto;
@@ -43,7 +45,10 @@ const getItemListing = async q => {
         limit: 4
       },
     });
+    const breadcrumbResponse = await axios.get(`http://api.mercadolibre.com/categories/${response.data.results[0].category_id}`);
+
     const items = [];
+
     response.data.results.forEach((item) => {
       const currentItem = {
         id: item.id,
@@ -58,7 +63,6 @@ const getItemListing = async q => {
         free_shipping: item.shipping.free_shipping,
         sold_quantity: item.sold_quantity,
         location: item.address.state_name,
-        description: "description"
       }
       items.push(currentItem);
     })
@@ -69,7 +73,8 @@ const getItemListing = async q => {
         lastName: 'Sequeira'
       },
       items,
-      categories: response.data.results.map(item => item.category_id)
+      categories: response.data.results.map(item => item.category_id),
+      breadcrumb: breadcrumbResponse.data.path_from_root
     };
     return listingDTO;
 

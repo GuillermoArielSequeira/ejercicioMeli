@@ -6,7 +6,8 @@ const Products = require('../components/productsList');
 
 const Search = props => {
   const serializeProps = {
-    items: props.items
+    items: props.items,
+    breadcrumb: props.breadcrumb
   };
   return (
     <div>

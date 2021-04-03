@@ -61,6 +61,7 @@
 @media(max-width: 870px){
   .products-info{
     &-container {
+      box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.1);
       &-description{
         width: 100%;
       }
