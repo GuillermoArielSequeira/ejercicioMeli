@@ -1,4 +1,5 @@
 const React = require('react');
+const { string, shape, number, arrayOf } = require('prop-types');
 require('./productInfo.scss');
 
 const ProductsInfo = ({ title, picture, price, condition, sold_quantity, description, breadcrumb }) => (
@@ -31,5 +32,15 @@ const ProductsInfo = ({ title, picture, price, condition, sold_quantity, descrip
     </div>
   </div>
 )
+
+ProductsInfo.propTypes = {
+  title: string,
+  picture: string,
+  price: shape({ amount: string, decimals: number }),
+  condition: string,
+  sold_quantity: number,
+  description: string,
+  breadcrumb: arrayOf(shape({ name: string }))
+}
 
 module.exports = ProductsInfo;

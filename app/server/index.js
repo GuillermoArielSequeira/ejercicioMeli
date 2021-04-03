@@ -5,6 +5,7 @@ require('@babel/polyfill');
 
 const hook = require('node-hook');
 
+// eslint-disable-next-line no-unused-vars
 const logLoadedFilename = (source, filename) => { };
 hook.hook('.scss', logLoadedFilename);
 // pongo esto para que los archivos scss no sean tenidos en cuenta en el server
@@ -19,7 +20,7 @@ const favicon = require('serve-favicon');
 const axios = require('axios');
 const Home = require('../pages/home');
 const Search = require('../pages/search');
-const Vip = require('../pages/vip');
+const ProductInfo = require('../pages/productInfo');
 const template = require('./template');
 const app = express();
 const port = 3000;
@@ -70,8 +71,8 @@ app.get("/items/:id", (req, res) => {
   axios.get(`http://localhost:3000/api/items/${itemId}`).then(
     response => {
       props.itemData = response.data;
-      res.send(template('vip',
-        ReactDOMServer.renderToString(React.createElement(Vip, { ...props }, null))));
+      res.send(template('productInfo',
+        ReactDOMServer.renderToString(React.createElement(ProductInfo, { ...props }, null))));
     }
   ).catch(e => console.error(e));
 });

@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     home: './app/client/home.js',
     search: './app/client/search.js',
-    vip: './app/client/vip.js'
+    productInfo: './app/client/productInfo.js'
   },
   output: {
     path: path.join(__dirname, './build'),

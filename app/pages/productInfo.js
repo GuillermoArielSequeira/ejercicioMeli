@@ -1,13 +1,14 @@
 const React = require('react');
+const { shape } = require('prop-types');
 const Script = require('../utils/script');
 const Layout = require('../components/search');
 const serialize = require('serialize-javascript');
 const ProductInfo = require('../components/productInfo');
 
-const Vip = props => {
+const Product = ({ itemData }) => {
 
   const serializeProps = {
-    itemData: props.itemData
+    itemData
   };
 
   return (
@@ -17,9 +18,13 @@ const Vip = props => {
         ${serialize(serializeProps, { isJSON: true })}; `}
       </Script>
       <Layout />
-      { props.itemData && <ProductInfo {...props.itemData.item} />}
+      { itemData && <ProductInfo {...itemData.item} />}
     </div>
   )
 };
 
-module.exports = Vip;
+Product.propTypes = {
+  itemData: shape({})
+}
+
+module.exports = Product;
