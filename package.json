@@ -50,6 +50,7 @@
     "react-declarative-head": "^1.0.5",
     "react-dom": "^17.0.1",
     "react-number-format": "^4.4.4",
+    "regenerator-runtime": "^0.13.7",
     "sass-loader": "^11.0.1",
     "serialize-javascript": "^5.0.1",
     "serve-favicon": "^2.5.0",

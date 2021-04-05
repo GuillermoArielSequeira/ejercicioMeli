@@ -23,7 +23,7 @@ const getItem = async id => {
           amount: new Intl.NumberFormat('de-DE').format(Math.trunc(response.data.price)), // -> le saca los decimales al amount
           decimals: getDecimalsFromPrice(response.data.price)
         },
-        picture: response.data.pictures[0].secure_url,
+        picture: response.data.pictures && response.data.pictures[0].secure_url,
         condition: response.data.condition,
         free_shipping: response.data.shipping.free_shipping,
         sold_quantity: response.data.sold_quantity,
@@ -31,7 +31,6 @@ const getItem = async id => {
         breadcrumb: breadcrumbResponse.data.path_from_root
       }
     };
-    console.log(itemDto);
     return itemDto;
 
   } catch (e) {
@@ -55,6 +54,7 @@ const getItemListing = async q => {
     }
 
     const items = [];
+
 
     response.data.results.forEach((item) => {
       const currentItem = {
@@ -83,7 +83,6 @@ const getItemListing = async q => {
       categories: response.data?.results.map(item => item.category_id),
       breadcrumb: breadcrumbResponse && breadcrumbResponse.data.path_from_root
     };
-    console.log(listingDTO);
     return listingDTO;
 
   } catch (e) {
