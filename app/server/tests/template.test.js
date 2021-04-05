@@ -1,6 +1,5 @@
 const template = require('../template');
 
-// eslint-disable-next-line no-useless-escape
 describe('Template function', () => {
   it('Template function works fine', () => {
     const wrapperFuction = template('home', 'component');

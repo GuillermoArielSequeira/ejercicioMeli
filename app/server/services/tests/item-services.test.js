@@ -5,19 +5,6 @@ jest.mock('axios');
 
 describe('test item-services.js', () => {
 
-  // test('test getItem fails', async () => {
-  //   const resp_descrip = { data: {} };
-  //   const resp_breadCrumb = { data: {} };
-  //   axios.get
-  //     .mockReturnValueOnce(Promise.reject({ error: 'error' }))
-  //     .mockReturnValueOnce(Promise.resolve(resp_descrip))
-  //     .mockReturnValueOnce(Promise.resolve(resp_breadCrumb));
-  //   const resp_item_service = await ItemService.getItem('query');
-  //   expect(resp_item_service).toEqual({});
-
-  // });
-
-
   test('test getItem', async () => {
     const resultsItem = {
       id: 'MLA885158557',
@@ -128,4 +115,24 @@ describe('test item-services.js', () => {
     });
   })
 
+  test('test getItem fails', async () => {
+    const resp_item = { data: {} };
+    const resp_descrip = { data: {} };
+    const resp_breadCrumb = { data: {} };
+    axios.get
+      .mockReturnValueOnce(Promise.reject(resp_item))
+      .mockReturnValueOnce(Promise.resolve(resp_descrip))
+      .mockReturnValueOnce(Promise.resolve(resp_breadCrumb));
+    const resp_item_service = await ItemService.getItem('query');
+    expect(resp_item_service).toEqual(undefined);
+  });
+
+
+  test('test getItemListing fails', async () => {
+    const resp_item = { data: {} };
+    const resp_breadCrumb = { data: {} };
+    axios.get.mockReturnValueOnce(Promise.resolve(resp_item)).mockReturnValueOnce(Promise.resolve(resp_breadCrumb));
+    const resp_items = await ItemService.getItemListing('query');
+    expect(resp_items).toEqual(undefined);
+  })
 })
