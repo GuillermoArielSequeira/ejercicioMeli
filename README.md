@@ -9,8 +9,6 @@
 npm run watch
 ```
 
-*Alternatively you may use the watcher for automatic assets rebuilding: `npm run watch`*
-
 ### 2) Run the app:
 
 ```
