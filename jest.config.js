@@ -17,6 +17,7 @@ module.exports = {
     '.*\/config\/.*',
     '.*\/build\/.*',
     '.*\/productInfo.scss\/.*',
+    '<rootDir>/app/server/index.js'
   ],
   collectCoverageFrom: [
     'app/**/*.js',
