@@ -5,7 +5,10 @@
 
 ### 1) Build the assets:
 
+
 ```
+npm install
+
 npm run watch
 ```
 
