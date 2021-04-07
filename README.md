@@ -23,6 +23,3 @@ http://localhost:3000/
 ```
 npm run test
 ```
-## License
-
-© 2020 Mercado Libre
