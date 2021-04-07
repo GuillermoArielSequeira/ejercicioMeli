@@ -1,6 +1,6 @@
 # Ejercicio Guillermo Sequeira
 
->  Esta aplicación es una pagina web que disponibiliza un lista de productos y el detalle del mismo.
+>  Esta aplicación es una pagina web que disponibiliza una lista de productos y el detalle de cada uno.
 ## Development
 
 ### 1) Build the assets:
