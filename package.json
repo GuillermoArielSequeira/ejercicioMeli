@@ -4,7 +4,7 @@
   "description": "ejercio meli",
   "main": "app.js",
   "scripts": {
-    "start-dev": "nodemon ./app/server",
+    "start-dev": "open http://localhost:3000 && nodemon ./app/server",
     "watch": "webpack --watch",
     "test": "jest",
     "test-coverage": "npm run test -- --coverage --watchAll=false",
