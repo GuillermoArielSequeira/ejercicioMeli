@@ -17,7 +17,7 @@ npm run start-dev
 
 ### 3) Navigate to:
 ```
-https://http://localhost:3000/
+http://localhost:3000/
 ```
 ### 4) Testing
 ```

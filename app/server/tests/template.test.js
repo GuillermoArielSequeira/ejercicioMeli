@@ -10,6 +10,8 @@ describe('Template function', () => {
       <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
       <meta name=\"viewport\" content=\"width=device-width\">
       <link rel="stylesheet" type="text/css" href="/home.css">
+      <link rel="apple-touch-icon" href="../assets/favicon.ico" />
+      <title>Mercado Libre</title>
   </head>
   <body>
     <div id=\"root\">component</div>
