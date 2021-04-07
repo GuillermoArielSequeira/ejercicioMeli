@@ -1,6 +1,6 @@
 # Ejercicio Guillermo Sequeira
 
-> Este proyecto muestra y administras las distintas subscripciones a partners que puede adquirir el usuario, también muestra los descuentos que puede tener según su nivel
+>  Esta aplicación es una pagina web que disponibiliza un lista de productos y el detalle del mismo.
 ## Development
 
 ### 1) Build the assets:
